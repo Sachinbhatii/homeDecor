@@ -1,0 +1,182 @@
+<section class="main">
+  <div class="container">
+    <div class="main-title">
+      Let's create a garden
+      <br>
+      in your home and office
+    </div>
+    <div class="main-text">
+      If you miss nature in a big city, there is nothing stopping you from turning your apartment or office into an oasis. And we will help you do it!
+    </div>
+  </div>
+</section>
+
+
+<section class="offers">
+  <div class="container">
+    <div class="offer offer-insta">
+      <div class="offer-title">
+        Get a 10% discount on our Instagram!
+      </div>
+      <div class="offer-content">
+        <div class="offer-image">
+          <img src="assets/images/page/offer1.png" alt="flower">
+        </div>
+        <div class="offer-inner-content">
+          <div class="offer-text">
+            Subscribe to our account and write to direct “I want a promo code”
+          </div>
+          <div class="offer-button">
+            <a href="#" class="button">Get a promotional code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offer offer-collection">
+      <div class="offer-title">
+        New collection of ceramic pots in stock
+      </div>
+
+      <div class="offer-content">
+        <div class="offer-image">
+          <img src="assets/images/page/offer2.png" alt="flower">
+        </div>
+        <div class="offer-button">
+          <a routerLink="/catalog" class="button">To catalog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="best-products">
+  <div class="container">
+    <div class="carousel-header">
+      <div class="carousel-title">Best offers of the month</div>
+      <div class="carousel-arrows">
+        <a class="move-backward" (click)="owlCar.prev()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10.5561 15C10.4013 15 10.2465 14.9435 10.1243 14.8224L4.8127 9.55746C3.94915 8.70151 3.94915 7.29647 4.8127 6.44052L10.1243 1.17563C10.3606 0.941456 10.7516 0.941456 10.9879 1.17563C11.2241 1.40981 11.2241 1.7974 10.9879 2.03158L5.67624 7.29647C5.2852 7.68407 5.2852 8.31392 5.67624 8.70151L10.9879 13.9664C11.2241 14.2006 11.2241 14.5882 10.9879 14.8224C10.8657 14.9354 10.7109 15 10.5561 15Z"
+              fill="#202B21"/>
+          </svg>
+        </a>
+        <a class="move-forward" (click)="owlCar.next()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5.44392 1C5.59871 1 5.75349 1.05652 5.87569 1.17765L11.1873 6.44254C12.0508 7.29849 12.0508 8.70353 11.1873 9.55948L5.87569 14.8244C5.63944 15.0585 5.2484 15.0585 5.01215 14.8244C4.7759 14.5902 4.7759 14.2026 5.01215 13.9684L10.3238 8.70353C10.7148 8.31593 10.7148 7.68608 10.3238 7.29849L5.01215 2.0336C4.7759 1.79942 4.7759 1.41182 5.01215 1.17765C5.13435 1.0646 5.28914 1 5.44392 1Z"
+              fill="#202B21"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="carousel-items">
+
+      <owl-carousel-o [options]="customOptions" #owlCar>
+        <ng-template carouselSlide *ngFor="let product of products">
+          <product-card [product]="product"></product-card>
+        </ng-template>
+      </owl-carousel-o>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="info" id="delivery">
+  <div class="container">
+    <div class="info-title">
+      Shipping and payment
+    </div>
+
+    <div class="info-item info-delivery">
+      <div class="info-image">
+        <img src="assets/images/page/delivery-circle.png" alt="delivery">
+      </div>
+      <div class="info-text">
+        <div class="info-text-main">1. Delivery by courier (in Minsk) - 10 BYN</div>
+        <div class="info-text-extra">The next day after placing the order</div>
+      </div>
+      <div class="info-text">
+        <div class="info-text-main">2. Pickup - 0 BYN</div>
+        <div class="info-text-extra">Point of delivery of goods: Minsk, st. Kalinovskogo 61, entrance 1, office 6</div>
+      </div>
+    </div>
+
+    <div class="info-item info-payment">
+      <div class="info-image">
+        <img src="assets/images/page/payment-circle.png" alt="payment">
+      </div>
+      <div class="info-text">
+        <div class="info-text-main">1. Cash upon receipt</div>
+      </div>
+      <div class="info-text">
+        <div class="info-text-main">2. Cashless payment upon receipt</div>
+      </div>
+      <div class="info-text">
+        <div class="info-text-main">3. Payment by credit card in an online store</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-title">
+      Home decor reviews
+    </div>
+
+    <div class="reviews-carousel">
+
+      <owl-carousel-o [options]="customOptionsReviews" #owlCarRev>
+        <ng-template carouselSlide *ngFor="let review of reviews">
+          <div class="review-item">
+            <div class="review-item-head">
+              <div class="review-item-image"
+                   style="background-image: url('/assets/images/reviews/{{review.image}}')"></div>
+              <div class="review-item-name">
+                {{review.name}}
+              </div>
+            </div>
+            <div class="review-item-text">
+              {{review.text}}
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+
+      <div class="reviews-arrows">
+        <a class="move-backward" (click)="owlCarRev.prev()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10.5551 15C10.4003 15 10.2455 14.9435 10.1233 14.8224L4.81172 9.55746C3.94818 8.70151 3.94818 7.29647 4.81172 6.44052L10.1233 1.17563C10.3596 0.941456 10.7506 0.941456 10.9869 1.17563C11.2231 1.40981 11.2231 1.7974 10.9869 2.03158L5.67526 7.29647C5.28423 7.68407 5.28423 8.31392 5.67526 8.70151L10.9869 13.9664C11.2231 14.2006 11.2231 14.5882 10.9869 14.8224C10.8647 14.9354 10.7099 15 10.5551 15Z"
+              fill="#202B21"/>
+          </svg>
+        </a>
+        <a class="move-forward" (click)="owlCarRev.next()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5.44392 1C5.59871 1 5.75349 1.05652 5.87569 1.17765L11.1873 6.44254C12.0508 7.29849 12.0508 8.70353 11.1873 9.55948L5.87569 14.8244C5.63944 15.0585 5.2484 15.0585 5.01215 14.8244C4.7759 14.5902 4.7759 14.2026 5.01215 13.9684L10.3238 8.70353C10.7148 8.31593 10.7148 7.68608 10.3238 7.29849L5.01215 2.0336C4.7759 1.79942 4.7759 1.41182 5.01215 1.17765C5.13435 1.0646 5.28914 1 5.44392 1Z"
+              fill="#202B21"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<section class="map">
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aef62276089a44b2340025bd381d38b24d5558a8e0b69638b126c7ec9dc3c1ba1&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+</section>
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<section class="login" [formGroup]="loginForm">
+  <div class="container">
+    <div class="auth-form">
+      <div class="auth-title">
+        Login to your personal account
+      </div>
+
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <input type="text" class="input" placeholder="Email"
+                 [ngStyle]="{'border-color': loginForm.get('email')?.invalid
+                 && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) ? 'red' : ''}"
+                 formControlName="email">
+        </div>
+        <div class="auth-input">
+          <input type="password" class="input" placeholder="Password"
+                 [ngStyle]="{'border-color': loginForm.get('password')?.invalid
+                 && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) ? 'red' : ''}"
+                 formControlName="password">
+        </div>
+        <div class="auth-checkbox">
+          <input type="checkbox" id="remember" formControlName="rememberMe">
+          <label for="remember">Remember me</label>
+        </div>
+      </div>
+
+      <div class="auth-button">
+        <button class="button" [disabled]="loginForm.invalid" (click)="login()">
+          Login
+        </button>
+      </div>
+
+      <div class="auth-link">
+        Don't have an account? <a routerLink="/signup">Register</a>
+      </div>
+
+    </div>
+
+
+    <div class="page-image">
+      <img src="assets/images/page/login.png" alt="flower">
+    </div>
+  </div>
+</section>
